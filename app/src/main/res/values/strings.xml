@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">hack</string>
+    <string name="home">home</string>
+    <string name="search">search</string>
+    <string name="add">add</string>
+    <string name="user">user</string>
+</resources>
