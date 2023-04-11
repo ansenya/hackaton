@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="5dp">
 
 
     <com.makeramen.roundedimageview.RoundedImageView
@@ -13,16 +13,34 @@
         android:adjustViewBounds="true"
         android:padding="3dp"
         android:src="@drawable/img"
-        app:riv_corner_radius="5dp" />
+        app:riv_corner_radius="20dp" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pic"
+        android:textSize="23dp"
+        android:layout_marginLeft="5dp"
+        android:text="5126 P"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/text"
-        android:layout_marginLeft="5dp"
-        android:textColor="@color/black"
-        android:layout_below="@+id/pic"
-        android:text="someText"
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="20dp"
+        android:layout_below="@+id/price"
+        android:layout_marginLeft="5dp"
+        android:text="someText"
+        android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/geo"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/text"
+        android:layout_marginLeft="5dp"
+        android:text="150м от тебя"
+        android:textColor="@color/black" />
 
 
 </RelativeLayout>

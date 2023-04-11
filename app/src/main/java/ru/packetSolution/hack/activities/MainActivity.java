@@ -12,20 +12,24 @@ import android.widget.SearchView;
 
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.ArrayList;
+
 import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.databinding.ActivityMainBinding;
 import ru.packetSolution.hack.fragments.FragmentAdd;
 import ru.packetSolution.hack.fragments.FragmentHome;
 import ru.packetSolution.hack.fragments.FragmentSearch;
 import ru.packetSolution.hack.fragments.FragmentUser;
+import ru.packetSolution.hack.room.App;
+import ru.packetSolution.hack.room.ItemEntity;
 
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    FragmentHome fragmentHome = new FragmentHome();
+    ArrayList<ItemEntity> entityArrayList = new ArrayList<>();
+    FragmentHome fragmentHome = new FragmentHome(entityArrayList);
     FragmentAdd fragmentAdd = new FragmentAdd();
-    FragmentSearch fragmentSearch = new FragmentSearch();
     FragmentUser fragmentUser = new FragmentUser();
 
 
@@ -34,13 +38,19 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
+
+        new Thread(()->{
+//            App.getDatabase().itemDao().save(new ItemEntity(R.drawable.img, "возможно, это кот"));
+//            App.getDatabase().itemDao().save(new ItemEntity(R.drawable.img, "а возможно и нет"));
+//            App.getDatabase().itemDao().save(new ItemEntity(R.drawable.img, "ыыыы"));
+            entityArrayList.addAll(App.getDatabase().itemDao().getAll());
+        }).start();
         initFragments();
     }
 
     private void initFragments(){
         getSupportFragmentManager().beginTransaction().
                 replace(binding.home.getId(), fragmentHome).
-                replace(binding.search.getId(), fragmentSearch).
                 replace(binding.add.getId(), fragmentAdd).
                 replace(binding.user.getId(), fragmentUser).
                 commit();
@@ -50,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()){
                 case R.id.home:
                     makeVisible(binding.home);
-                    return true;
-                case R.id.search:
-                    makeVisible(binding.search);
                     return true;
                 case R.id.add:
                     makeVisible(binding.add);

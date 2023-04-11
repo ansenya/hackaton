@@ -18,6 +18,7 @@ import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.adapters.RecyclerViewAdapter;
 import ru.packetSolution.hack.databinding.FragmentSearchBinding;
 
+//TODO:в фигме нет фрагмента с поиском, так что нужно поиск сделать в home
 
 public class FragmentSearch extends Fragment {
 

@@ -8,22 +8,23 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import ru.packetSolution.hack.adapters.RecyclerViewAdapter;
 import ru.packetSolution.hack.databinding.FragmentHomeBinding;
-import ru.packetSolution.hack.room.item;
+import ru.packetSolution.hack.room.ItemEntity;
 
 public class FragmentHome extends Fragment {
 
     FragmentHomeBinding binding;
-    ArrayList<item> items = new ArrayList<>();
+    ArrayList<ItemEntity> items;
 
-    public FragmentHome() {
+    public FragmentHome(ArrayList<ItemEntity> items) {
+        this.items = items;
     }
 
     @Nullable
@@ -34,12 +35,9 @@ public class FragmentHome extends Fragment {
         return binding.getRoot();
     }
     private void initRecycler(){
-        items.add(new item());
-        items.add(new item());
-        items.add(new item());
-        items.add(new item());
+
         binding.recyclerView.setAdapter(new RecyclerViewAdapter(items));
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
     }
 }

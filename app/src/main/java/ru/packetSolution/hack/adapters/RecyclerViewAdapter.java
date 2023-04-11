@@ -3,21 +3,24 @@ package ru.packetSolution.hack.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ru.packetSolution.hack.R;
-import ru.packetSolution.hack.room.item;
+import ru.packetSolution.hack.room.ItemEntity;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    List<item> items;
+    List<ItemEntity> items;
 
-    public RecyclerViewAdapter(ArrayList<item> items) {
+    public RecyclerViewAdapter(ArrayList<ItemEntity> items) {
         this.items = items;
     }
 
@@ -29,7 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
-
+        holder.setContainer(items.get(position));
     }
 
     @Override
@@ -38,8 +41,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        RoundedImageView roundedImageView;
+        TextView textView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            roundedImageView = itemView.findViewById(R.id.pic);
+            textView = itemView.findViewById(R.id.text);
+        }
+
+        public void setContainer(ItemEntity item){
+            roundedImageView.setImageResource(item.getDrawablePic());
+            textView.setText(item.getText());
         }
     }
 }
