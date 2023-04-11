@@ -1,1 +1,1 @@
-# Samsung-Hackathon-HW-Server
+# Samsung-Hackathon-HW-Android
