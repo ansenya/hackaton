@@ -1,5 +1,6 @@
 package ru.packetSolution.hack.adapters;
 
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,14 +45,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         RoundedImageView roundedImageView;
         TextView textView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             roundedImageView = itemView.findViewById(R.id.pic);
             textView = itemView.findViewById(R.id.text);
         }
 
-        public void setContainer(ItemEntity item){
-            roundedImageView.setImageResource(item.getDrawablePic());
+        public void setContainer(ItemEntity item) {
+            if (item.getDrawablePic() == 0){
+                if (BitmapFactory.decodeFile(item.getPath())==null){
+                    roundedImageView.setImageResource(R.drawable.img);
+                } else {
+                    roundedImageView.setImageBitmap(BitmapFactory.decodeFile(item.getPath()));
+                }
+            } else {
+                roundedImageView.setImageResource(item.getDrawablePic());
+            }
             textView.setText(item.getText());
         }
     }

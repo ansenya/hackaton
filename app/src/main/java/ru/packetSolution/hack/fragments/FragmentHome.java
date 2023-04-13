@@ -35,9 +35,12 @@ public class FragmentHome extends Fragment {
         return binding.getRoot();
     }
     private void initRecycler(){
-
         binding.recyclerView.setAdapter(new RecyclerViewAdapter(items));
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
+    }
+
+    public void notifyAdapter(){
+        binding.recyclerView.getAdapter().notifyDataSetChanged();
     }
 }

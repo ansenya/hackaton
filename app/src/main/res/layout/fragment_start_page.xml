@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:padding="10dp"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/images"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <com.makeramen.roundedimageview.RoundedImageView
+        tools:src="@drawable/img"
+        android:layout_margin="25dp"
 
-</LinearLayout>
+        android:id="@+id/images"
+        app:riv_corner_radius="20dp"
+        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textSize="18sp"
+        android:layout_margin="25dp"
+android:textColor="@color/black"
+        android:layout_below="@+id/images"
+        android:text="Lorem ipsum dolor sit amet consectetur. Scelerisque facilisi ullamcorper fermentum mattis dolor sed blandit etiam. Lobortis lectus donec libero risus sapien mus. Varius semper tortor id aliquam porttitor aliquam. Tellus pharetra pellentesque ultrices amet cras pulvinar. Varius eu lobortis mauris massa leo. Proin amet adipiscing tincidunt viverra eu amet cras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

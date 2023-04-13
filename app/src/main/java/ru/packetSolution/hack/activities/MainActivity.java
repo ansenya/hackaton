@@ -2,9 +2,13 @@ package ru.packetSolution.hack.activities;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -27,29 +31,16 @@ public class MainActivity extends AppCompatActivity {
     protected boolean firstTime = true;
     ArrayList<ItemEntity> entityArrayList = new ArrayList<>();
     FragmentHome fragmentHome = new FragmentHome(entityArrayList);
-    FragmentAdd fragmentAdd = new FragmentAdd();
+    FragmentAdd fragmentAdd = new FragmentAdd(entityArrayList);
     FragmentUser fragmentUser = new FragmentUser();
-    //FragmentStart fragmentStart = new FragmentStart();
 
-    private ViewPager2 viewPager2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
-        if (savedInstanceState != null) {
-            firstTime = savedInstanceState.getBoolean("firstTime");
-        }
-        if (firstTime) {
-            Intent intent = new Intent(MainActivity.this, StartActivity.class);
-            startActivity(intent);
-            firstTime = false;
-        }
         new Thread(()->{
-//            App.getDatabase().itemDao().save(new ItemEntity(R.drawable.img, "возможно, это кот"));
-//            App.getDatabase().itemDao().save(new ItemEntity(R.drawable.img, "а возможно и нет"));
-//            App.getDatabase().itemDao().save(new ItemEntity(R.drawable.img, "ыыыы"));
             entityArrayList.addAll(App.getDatabase().itemDao().getAll());
         }).start();
         initFragments();
@@ -63,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 replace(binding.user.getId(), fragmentUser).
                 commit();
         makeVisible(binding.home);
-        binding.bottomNavigation.setOnItemSelectedListener(item ->
-        {
+        binding.bottomNavigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 case R.id.home:
                     makeVisible(binding.home);
+                    fragmentHome.notifyAdapter();
                     return true;
                 case R.id.add:
                     makeVisible(binding.add);
@@ -75,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.user:
                     makeVisible(binding.user);
                     return true;
-                /*case R.id.start:
-                    makeVisible(binding.start);
-                    return true;*/
             }
             return false;
         });
@@ -88,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         binding.add.setVisibility(View.GONE);
         binding.search.setVisibility(View.GONE);
         binding.user.setVisibility(View.GONE);
-        //binding.start.setVisibility(View.GONE);
         id.setVisibility(View.VISIBLE);
     }
 }
