@@ -39,7 +39,7 @@
         android:layout_height="70dp"
         android:layout_margin="5dp"
 
-        app:hint="Название:"
+        app:hint="Котик"
         app:hint_color="@color/black"
         app:title="Название:" />
 
@@ -47,9 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:inputType="text"
-        app:hint="Описание:"
+        app:hint="Хорошенбкий"
         android:layout_margin="5dp"
-
         app:hint_color="@color/black"
         app:title="Описание:" />
 
@@ -58,17 +57,20 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="5dp"
-
-        app:hint="Цена:"
+        app:hint="2 сольди"
         app:hint_color="@color/black"
         app:title="Цена:" />
 
     <Button
         android:id="@+id/button"
-
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="#D3817A"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:text="Добавить"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="left"
+        android:textSize="12sp"
+        android:background="@drawable/rectangle_2"
         android:layout_margin="10dp" />
 
 

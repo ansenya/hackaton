@@ -31,6 +31,32 @@ public class FragmentHome extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(LayoutInflater.from(getContext()), container, false);
+        /*View v = inflater.inflate(R.layout.fragment_search,container,false);
+        SearchView sv = (SearchView) v.findViewById(R.id.search);
+        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                ArrayList<Animals> animalsList = (ArrayList<Animals>) bd.getAllAnimals();
+                searchList = new ArrayList<>();
+                for (Animals animal : animalsList) {
+                    if (animal.getName().toLowerCase().contains(newText.toLowerCase())) {
+                        searchList.add(animal);
+                    }
+                }
+                RecyclerView rv = (RecyclerView) v.findViewById(R.id.recycler_view1);
+                RecyclerViewAdapter adapter = new RecyclerViewAdapter(FragmentSearch.this, searchList); //?
+                rv.setAdapter(adapter);
+                rv.setLayoutManager(new LinearLayoutManager(FragmentSearch.this)); //?
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+        }); */
         initRecycler();
         return binding.getRoot();
     }

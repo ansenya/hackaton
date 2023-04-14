@@ -7,22 +7,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.makeramen.roundedimageview.RoundedImageView
-        tools:src="@drawable/img"
-        android:layout_margin="25dp"
-
         android:id="@+id/images"
-        app:riv_corner_radius="20dp"
+        android:layout_width="158dp"
+        android:layout_height="158dp"
         android:adjustViewBounds="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:background="@drawable/logo"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        app:riv_corner_radius="20dp"
+        tools:src="@drawable/img" />
 
     <TextView
         android:textSize="18sp"
-        android:layout_margin="25dp"
+        android:layout_marginTop="30dp"
 android:textColor="@color/black"
         android:layout_below="@+id/images"
+        android:layout_centerHorizontal="true"
         android:text="Lorem ipsum dolor sit amet consectetur. Scelerisque facilisi ullamcorper fermentum mattis dolor sed blandit etiam. Lobortis lectus donec libero risus sapien mus. Varius semper tortor id aliquam porttitor aliquam. Tellus pharetra pellentesque ultrices amet cras pulvinar. Varius eu lobortis mauris massa leo. Proin amet adipiscing tincidunt viverra eu amet cras"
-        android:layout_width="wrap_content"
+        android:layout_width="243dp"
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>

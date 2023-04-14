@@ -13,82 +13,82 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="50dp"
         android:text="Привет!"
         android:textColor="@color/black"
-        android:textSize="19sp" />
+        android:textSize="30sp" />
+
+
+    <ru.packetSolution.hack.views.InputField
+        android:id="@+id/input_email"
+        android:layout_width="325dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:inputType="textEmailAddress"
+        app:hint="example@gmail.com"
+        app:hint_color="@color/hint_color"
+        android:layout_below="@+id/asd"
+        app:title="Почта:" >
+
+    </ru.packetSolution.hack.views.InputField>
 
     <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/restore_password"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/asd"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="4dp"
+        android:text="Забыли пароль?.."
+        android:textSize="12sp" />
+
+    <ru.packetSolution.hack.views.InputField
+        android:id="@+id/input_password"
+        android:layout_width="325dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/black"
-        android:textSize="19sp" />
+        android:layout_height="match_parent"
+        android:inputType="textPassword"
+        app:hint="password"
+        android:layout_marginTop="180dp"
+        android:layout_below="@+id/asd"
+        app:hint_color="@color/hint_color"
+        app:title="Пароль:" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#D3817A"
+        android:text="Войти"
+        android:layout_marginLeft="14dp"
+        android:layout_below="@+id/asd"
+        android:textSize="12sp"
+        android:layout_marginTop="290dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/rectangle_2"
+        android:textColor="@color/white" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/registration"
+        android:layout_width="140dp"
+        android:layout_marginRight="14dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#84AF83"
         android:layout_centerInParent="true"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
-
-
-        <ru.packetSolution.hack.views.InputField
-            android:id="@+id/input_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:inputType="textEmailAddress"
-            app:hint="Адрес электронной почты"
-            app:hint_color="@color/hint_color"
-            app:src="@drawable/img"
-            app:title="Email address" />
-
-        <ru.packetSolution.hack.views.InputField
-            android:id="@+id/input_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            app:hint="Пароль"
-            app:hint_color="@color/hint_color"
-            app:src="@drawable/img"
-            app:title="Password" />
-
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:backgroundTint="@color/black"
-            android:text="Войти"
-            android:textColor="@color/white" />
-
-        <TextView
-            android:id="@+id/restore_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Восстановить пароль" />
-
-        <TextView
-            android:id="@+id/registration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Регистрация" />
-
-    </LinearLayout>
+        android:text="Регистрация"
+        android:textSize="12sp"
+        android:layout_below="@+id/asd"
+        android:layout_marginTop="290dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/rectangle_2"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/wrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_layout"
         android:layout_centerHorizontal="true"
         android:text="Что-то неверно!"
         android:textColor="@color/red"

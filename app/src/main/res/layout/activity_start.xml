@@ -16,13 +16,13 @@
         android:id="@+id/dots_indicator2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/viewpager2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_above="@+id/homebtn"
+        android:layout_marginBottom="16dp"
         app:dotsColor="@color/dots_color"
         app:dotsCornerRadius="8dp"
         app:dotsSize="12dp"
-        app:dotsSpacing="6dp"
+        app:dotsSpacing="4dp"
         app:dotsWidthFactor="2.0"
         app:progressMode="true"
         app:selectedDotColor="@color/dots_color" />
@@ -30,13 +30,13 @@
     <Button
         android:id="@+id/homebtn"
         android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#DDDDDD"
         android:text="Вперёд к милым созданиям!"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="12dp" />
 
 </RelativeLayout>
