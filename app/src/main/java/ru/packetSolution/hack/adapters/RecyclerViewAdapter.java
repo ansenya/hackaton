@@ -20,15 +20,20 @@ import ru.packetSolution.hack.room.ItemEntity;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     List<ItemEntity> items;
+    private int idView;
+    private int layoutId;
 
-    public RecyclerViewAdapter(ArrayList<ItemEntity> items) {
+    public RecyclerViewAdapter(ArrayList<ItemEntity> items, int idView) {
         this.items = items;
+        if(idView == 1) this.layoutId = R.layout.view_item;
+        if(idView == 2) this.layoutId = R.layout.view_item_add;
+        if(idView == 3) this.layoutId = R.layout.view_item_favourite;
     }
 
     @NonNull
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false));
     }
 
     @Override

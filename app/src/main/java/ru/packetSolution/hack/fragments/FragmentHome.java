@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 
@@ -73,8 +74,8 @@ public class FragmentHome extends Fragment implements myInterface {
     }
 
     private void initRecycler() {
-        binding.recyclerView.setAdapter(new RecyclerViewAdapter(items));
-        binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        binding.recyclerView.setAdapter(new RecyclerViewAdapter(items, 1));
+        binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         getParentFragmentManager().beginTransaction().replace(binding.searchFragment.getId(), new FragmentSearch(items)).replace(binding.fullscreen.getId(), fragmentFullscreen).commit();
     }

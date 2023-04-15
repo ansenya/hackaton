@@ -35,7 +35,7 @@ public class FragmentSearch extends Fragment {
     }
 
     private void initRecycler(){
-        binding.searchList.setAdapter(new RecyclerViewAdapter(itemsSearch));
+        binding.searchList.setAdapter(new RecyclerViewAdapter(itemsSearch, 1));
         binding.searchList.setLayoutManager(new GridLayoutManager(getContext(), 2));
     }
 }

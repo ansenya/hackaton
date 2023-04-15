@@ -12,6 +12,8 @@
     <string name="user_name" >Пакетное решение</string>
     <string name="name_profile_fragment" >Профиль</string>
     <string name="user_email" >packetsolution@yandex.ru</string>
-    <string name="reg_data" >Ты с нами с апреля 2023 года!</string>
+    <string name="reg_data" >С апреля 2023 ты с нами!</string>
     <string name="user_id" >293</string>
+    <string name="text_edit">Редактировать</string>
+    <string name="text_favourite">Избранное</string>
 </resources>

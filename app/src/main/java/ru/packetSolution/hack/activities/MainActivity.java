@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ItemEntity> entityArrayList = new ArrayList<>();
     FragmentHome fragmentHome = new FragmentHome(entityArrayList);
     FragmentFirstAdd fragmentFirstAdd = new FragmentFirstAdd(entityArrayList);
-    FragmentUser fragmentUser = new FragmentUser();
+    FragmentUser fragmentUser = new FragmentUser(entityArrayList);
 
 
     @Override
