@@ -1,4 +1,4 @@
-package ru.packetSolution.hack.model;
+package ru.packetSolution.hack.domain.model;
 
 
 
