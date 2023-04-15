@@ -5,6 +5,7 @@
     android:animateLayoutChanges="true"
     android:orientation="vertical">
 
+
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
@@ -62,7 +63,6 @@
 
 
     <FrameLayout
-        android:layout_marginTop="140dp"
         android:id="@+id/fullscreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -20,6 +20,10 @@ public class StartActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +32,10 @@ public class StartActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
-        if((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
-            ActivityCompat.requestPermissions(this,
-                    new String[ ] {Manifest.permission.READ_EXTERNAL_STORAGE},
-                    1);
-        }
+//        startActivity(new Intent(this, MainActivity.class));
+//        finish();
+
+        ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, 1);
 
         if (!preferences.contains("Authorized")) {
             editor.putBoolean("Authorized", false).commit();

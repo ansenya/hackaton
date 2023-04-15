@@ -1,6 +1,7 @@
 package ru.packetSolution.hack.fragments;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ru.packetSolution.hack.databinding.FragmentFullscreenBinding;
+import ru.packetSolution.hack.room.ItemEntity;
 
 public class FragmentFullscreen extends Fragment {
 
@@ -23,8 +25,8 @@ public class FragmentFullscreen extends Fragment {
         return binding.getRoot();
     }
 
-    public void setImage(){
-
+    public void setImage(ItemEntity item){
+        binding.pic.setImageBitmap(BitmapFactory.decodeFile(item.getPath()));
     }
 
 

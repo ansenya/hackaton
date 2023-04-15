@@ -100,6 +100,7 @@ public class FragmentHome extends Fragment implements myInterface {
             @Override
             public void onClick(View view, int position) {
                 binding.fullscreen.setVisibility(View.VISIBLE);
+                fragmentFullscreen.setImage(items.get(position));
             }
 
             @Override
