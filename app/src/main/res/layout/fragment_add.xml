@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,78 +7,74 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Добавление милого создания"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Фото:"
+        android:textColor="@color/black" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/pic"
+        android:layout_margin="10dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:adjustViewBounds="true"
+        android:src="@drawable/no_pic"
+        app:riv_corner_radius="20dp" />
+
+    <ru.packetSolution.hack.views.InputField
         android:layout_width="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Добавление милого создания"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        app:hint="Котик"
+        android:id="@+id/name"
+        android:inputType="text"
+        app:hint_color="@color/hint_color"
+        app:title="Название:" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Фото:"
-            android:textColor="@color/black" />
-
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/pic"
-            android:layout_margin="10dp"
-
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:adjustViewBounds="true"
-            android:src="@drawable/no_pic"
-            app:riv_corner_radius="20dp" />
-
-        <ru.packetSolution.hack.views.InputField
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="5dp"
-            app:hint="Котик"
-            app:hint_color="@color/hint_color"
-            app:title="Название:" />
-
-        <ru.packetSolution.hack.views.InputField
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:inputType="text"
-            app:hint="Хорошенбкий"
-            android:layout_margin="5dp"
-            app:hint_color="@color/hint_color"
-            app:title="Описание:" />
+    <ru.packetSolution.hack.views.InputField
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:inputType="text"
+        android:id="@+id/description"
+        app:hint="Хорошенбкий"
+        android:layout_margin="5dp"
+        app:hint_color="@color/hint_color"
+        app:title="Описание:" />
 
 
-        <ru.packetSolution.hack.views.InputField
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_margin="5dp"
-            app:hint="2 сольди"
-            app:hint_color="@color/hint_color"
-            app:title="Цена:" />
+    <ru.packetSolution.hack.views.InputField
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_margin="5dp"
+        app:hint="2 сольди"
+        android:id="@+id/price"
+        android:inputType="number"
+        app:hint_color="@color/hint_color"
+        app:title="Цена:" />
 
-        <Button
-            android:id="@+id/button"
-            app:backgroundTint="#D3817A"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:text="Добавить"
-            android:layout_marginLeft="4dp"
-            android:layout_gravity="left"
-            android:textSize="12sp"
-            android:background="@drawable/rectangle_2"
-            android:layout_margin="10dp" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/button"
+        app:backgroundTint="#D3817A"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:text="Добавить"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="left"
+        android:textSize="12sp"
+        android:background="@drawable/rectangle_2"
+        android:layout_margin="10dp" />
 
 
-
-
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>

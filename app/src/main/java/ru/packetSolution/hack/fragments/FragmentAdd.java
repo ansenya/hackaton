@@ -15,6 +15,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,9 +27,11 @@ import androidx.loader.content.CursorLoader;
 
 import java.util.ArrayList;
 
+import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.databinding.FragmentAddBinding;
 import ru.packetSolution.hack.room.App;
 import ru.packetSolution.hack.room.ItemEntity;
+import ru.packetSolution.hack.views.InputField;
 
 
 public class FragmentAdd extends Fragment {
@@ -36,7 +41,7 @@ public class FragmentAdd extends Fragment {
 
     ArrayList<ItemEntity> items;
 
-    public FragmentAdd(    ArrayList<ItemEntity> items){
+    public FragmentAdd(ArrayList<ItemEntity> items){
         this.items = items;
     }
 
@@ -49,8 +54,19 @@ public class FragmentAdd extends Fragment {
     }
 
     void init(){
-        binding.button.setOnClickListener(view ->{
+        binding.pic.setOnClickListener(view ->{
             startActivityForResult(new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).addFlags(FLAG_GRANT_READ_URI_PERMISSION), 3);
+        });
+        InputField name = binding.name;
+        InputField description = binding.description;
+        InputField price = binding.price;
+        Button btn = binding.button;
+        ImageView pic = binding.pic;
+        btn.setOnClickListener(view -> {
+            new Thread(()->{
+                items.add(new ItemEntity(path, name.getInputText(), description.getInputText(), Integer.parseInt(price.getInputText())));
+                App.getDatabase().itemDao().save(new ItemEntity(path, name.getInputText(), description.getInputText(), Integer.parseInt(price.getInputText())));
+            }).start();
         });
     }
 
@@ -61,10 +77,6 @@ public class FragmentAdd extends Fragment {
             path = getRealPath(getContext(), data.getData());
             Log.e("MyTag", path);
             binding.pic.setImageBitmap(BitmapFactory.decodeFile(path));
-            new Thread(()->{
-                items.add(new ItemEntity(path, "text"));
-                App.getDatabase().itemDao().save(new ItemEntity(path, "text"));
-            }).start();
         }
     }
 

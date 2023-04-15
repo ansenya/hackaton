@@ -44,12 +44,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         RoundedImageView roundedImageView;
-        TextView textView;
+        TextView name;
+        TextView price;
+        TextView geo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             roundedImageView = itemView.findViewById(R.id.pic);
-            textView = itemView.findViewById(R.id.text);
+            name = itemView.findViewById(R.id.text);
+            price = itemView.findViewById(R.id.price);
         }
 
         public void setContainer(ItemEntity item) {
@@ -62,7 +65,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             } else {
                 roundedImageView.setImageResource(item.getDrawablePic());
             }
-            textView.setText(item.getText());
+            name.setText(item.getText());
+            price.setText(item.getPrice() +"");
         }
     }
 }
