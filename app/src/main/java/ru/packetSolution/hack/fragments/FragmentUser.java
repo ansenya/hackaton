@@ -38,4 +38,8 @@ public class FragmentUser extends Fragment {
         binding.recyclerView.setAdapter(new RecyclerViewAdapter(itemEntities, 3));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
+    public void notifyAdapter() {
+        binding.recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
 }

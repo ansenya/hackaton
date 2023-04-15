@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.user:
                     makeVisible(binding.user);
+                    fragmentUser.notifyAdapter();
                     return true;
             }
             return false;
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (fragmentHome.fullscreen()) {
             fragmentHome.back();
+        } else if (false) {
+            
         } else {
             super.onBackPressed();
         }
