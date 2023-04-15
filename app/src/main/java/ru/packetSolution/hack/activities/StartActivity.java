@@ -28,8 +28,8 @@ public class StartActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
-
-
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
         if((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this,
                     new String[ ] {Manifest.permission.READ_EXTERNAL_STORAGE},

@@ -38,9 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="5dp"
-
         app:hint="Котик"
-        app:hint_color="@color/black"
+        app:hint_color="@color/hint_color"
         app:title="Название:" />
 
     <ru.packetSolution.hack.views.InputField
@@ -49,7 +48,7 @@
         android:inputType="text"
         app:hint="Хорошенбкий"
         android:layout_margin="5dp"
-        app:hint_color="@color/black"
+        app:hint_color="@color/hint_color"
         app:title="Описание:" />
 
 
@@ -58,12 +57,12 @@
         android:layout_height="70dp"
         android:layout_margin="5dp"
         app:hint="2 сольди"
-        app:hint_color="@color/black"
+        app:hint_color="@color/hint_color"
         app:title="Цена:" />
 
     <Button
         android:id="@+id/button"
-        android:backgroundTint="#D3817A"
+        app:backgroundTint="#D3817A"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:text="Добавить"

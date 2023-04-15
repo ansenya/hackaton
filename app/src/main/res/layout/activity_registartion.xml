@@ -16,8 +16,7 @@
         android:textColor="@color/black"
         android:textSize="30sp" />
 
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,9 +41,9 @@
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:inputType="textPassword"
             app:hint="password"
-            android:layout_marginTop="20dp"
             app:hint_color="@color/hint_color"
             app:src="@drawable/img"
             app:title="Пароль:" />
@@ -53,9 +52,9 @@
             android:id="@+id/input_repeat_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:inputType="textPassword"
             app:hint="password"
-            android:layout_marginTop="20dp"
             app:hint_color="@color/hint_color"
             app:src="@drawable/img"
             app:title="Подтвердите пароль:" />
@@ -64,7 +63,7 @@
             android:id="@+id/checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:text="Принимаю условия пользовательского соглашения"
             android:textAlignment="textStart" />
 
@@ -73,14 +72,14 @@
             android:id="@+id/button"
             android:layout_width="160dp"
             android:layout_height="40dp"
-            android:backgroundTint="#D3817A"
-            android:text="Создать аккаунт"
-            android:layout_marginLeft="4dp"
             android:layout_gravity="left"
-            android:textSize="12sp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/rectangle_2"
-            android:textColor="@color/white" />
+            android:backgroundTint="#D3817A"
+            android:text="Создать аккаунт"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
 
 
         <TextView
@@ -89,8 +88,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="У меня уже есть аккаунт" />
-
-
     </LinearLayout>
 
     <TextView
