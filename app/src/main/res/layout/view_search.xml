@@ -5,26 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/input"
+
+    <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_centerInParent="true"
         android:background="@drawable/rectangle_1"
         android:hint="Поищем-ка"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:shadowColor="@color/black"
         android:textColor="@color/black"
         android:textSize="16sp" />
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/ic_search" />
+    <!--    <EditText-->
+    <!--        android:id="@+id/input"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="35dp"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:background="@drawable/rectangle_1"-->
+    <!--        android:hint="Поищем-ка"-->
+    <!--        android:inputType="textPassword"-->
+    <!--        android:paddingLeft="10dp"-->
+    <!--        android:shadowColor="@color/black"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="16sp" />-->
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="30dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_alignParentRight="true"-->
+    <!--        android:layout_centerInParent="true"-->
+    <!--        android:layout_marginRight="10dp"-->
+    <!--        android:src="@drawable/ic_search" />-->
 
 
 </RelativeLayout>

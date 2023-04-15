@@ -30,12 +30,12 @@ public class FragmentUser extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentUserBinding.inflate(LayoutInflater.from(getContext()), container, false);
+        initRecycler();
         return binding.getRoot();
     }
 
-    /*private void initRecycler(){
+    private void initRecycler(){
         binding.recyclerView.setAdapter(new RecyclerViewAdapter(itemEntities, 3));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-    }*/
+    }
 }

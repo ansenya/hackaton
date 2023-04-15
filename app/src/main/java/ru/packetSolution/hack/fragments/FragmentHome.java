@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,6 +33,7 @@ public class FragmentHome extends Fragment implements myInterface {
 
     FragmentHomeBinding binding;
     ArrayList<ItemEntity> items;
+    ArrayList<ItemEntity> itemsSearch = new ArrayList<>();
     FragmentFullscreen fragmentFullscreen = new FragmentFullscreen();
 
     public FragmentHome(ArrayList<ItemEntity> items) {
@@ -42,6 +44,7 @@ public class FragmentHome extends Fragment implements myInterface {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(LayoutInflater.from(getContext()), container, false);
+        binding.input.clearFocus();
         /*View v = inflater.inflate(R.layout.fragment_search,container,false);
         SearchView sv = (SearchView) v.findViewById(R.id.search);
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -77,26 +80,13 @@ public class FragmentHome extends Fragment implements myInterface {
         binding.recyclerView.setAdapter(new RecyclerViewAdapter(items, 1));
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
+
+        binding.recyclerViewSearch.setAdapter(new RecyclerViewAdapter(items, 1));
+        binding.recyclerViewSearch.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         getParentFragmentManager().beginTransaction().replace(binding.searchFragment.getId(), new FragmentSearch(items)).replace(binding.fullscreen.getId(), fragmentFullscreen).commit();
     }
 
     private void initListeners() {
-        binding.input.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                Toast.makeText(getContext(), "not changed", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Toast.makeText(getContext(), "changed", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                Toast.makeText(getContext(), "after changed", Toast.LENGTH_SHORT).show();
-            }
-        });
         binding.recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), binding.recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -110,6 +100,24 @@ public class FragmentHome extends Fragment implements myInterface {
 
             }
         }));
+        binding.input.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                for (ItemEntity item:items){
+                    if (item.getText().toLowerCase().contains(newText.toLowerCase())) {
+                        itemsSearch.add(item);
+                    }
+                }
+                binding.recyclerViewSearch.setVisibility(View.VISIBLE);
+                binding.recyclerView.setVisibility(View.GONE);
+                return false;
+            }
+        });
     }
 
     public void notifyAdapter() {

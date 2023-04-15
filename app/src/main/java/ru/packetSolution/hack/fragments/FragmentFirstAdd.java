@@ -49,6 +49,7 @@ public class FragmentFirstAdd extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
+
     }
 
     public void notifyAdapter(){
