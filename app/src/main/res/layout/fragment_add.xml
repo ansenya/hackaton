@@ -44,6 +44,8 @@
             android:layout_height="70dp"
             android:layout_margin="5dp"
             app:hint="Котик"
+            android:inputType="text"
+            android:id="@+id/name"
             app:hint_color="@color/hint_color"
             app:title="Название:" />
 
@@ -51,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:inputType="text"
+            android:id="@+id/description"
             app:hint="Хорошенбкий"
             android:layout_margin="5dp"
             app:hint_color="@color/hint_color"
@@ -62,6 +65,8 @@
             android:layout_height="70dp"
             android:layout_margin="5dp"
             app:hint="2 сольди"
+            android:inputType="number"
+            android:id="@+id/price"
             app:hint_color="@color/hint_color"
             app:title="Цена:" />
 
