@@ -7,12 +7,35 @@
     tools:context=".fragments.FragmentFirstAdd"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="31dp"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginRight="4dp"
+        android:drawableTop="@drawable/vector">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/rect"
+        android:layout_width="370dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/rectangle_3"
+        android:backgroundTint="@color/dots_color"
+        android:textSize="12sp"></TextView>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:text="Мои объявления"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
         android:layout_marginLeft="8dp"
         android:id="@+id/title">
     </TextView>
@@ -23,7 +46,8 @@
         android:text="12850p"
         android:layout_marginTop="21dp"
         android:textSize="16sp"
-        android:layout_marginLeft="12dp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="40dp"
         android:layout_below="@+id/title"
         android:id="@+id/profit">
     </TextView>
@@ -32,21 +56,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="принесли продажи"
-        android:layout_marginTop="35dp"
-        android:textSize="16sp"
-        android:layout_marginLeft="12dp"
-        android:layout_below="@+id/title">
-    </TextView>
-
-    <TextView
-        android:layout_width="370dp"
-        android:layout_marginLeft="8dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rectangle_3"
-        android:backgroundTint="@color/dots_color"
         android:textSize="12sp"
-        android:layout_below="@+id/title">
+        android:layout_alignLeft="@id/rect"
+        android:layout_alignTop="@id/rect"
+        android:layout_alignRight="@id/rect"
+        android:textColor="#000000"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/profit"
+        android:layout_alignBottom="@id/rect">
     </TextView>
 
     <TextView
@@ -54,7 +72,8 @@
         android:layout_height="wrap_content"
         android:text="Активные"
         android:layout_marginTop="40dp"
-        android:textSize="14sp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
         android:layout_marginLeft="8dp"
         android:id="@+id/list"
         android:layout_below="@+id/profit">
@@ -64,7 +83,7 @@
         android:layout_height="wrap_content"
         android:text="2"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="100dp"
         android:textSize="12sp"
         android:id="@+id/items_count"
         android:layout_below="@+id/profit">
@@ -72,7 +91,7 @@
 
     <Button
         android:id="@+id/ad"
-        android:layout_width="200dp"
+        android:layout_width="220dp"
         android:layout_height="40dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
@@ -80,14 +99,15 @@
         app:backgroundTint="#84AF83"
         android:text="Разместить объявление"
         android:textColor="@color/white"
-        android:layout_below="@+id/recycler_view"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
         android:textSize="11sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/list" />
+        android:layout_height="410dp"
+        android:layout_below="@+id/list"
+        android:layout_marginTop="13dp" />
 
 </RelativeLayout>
