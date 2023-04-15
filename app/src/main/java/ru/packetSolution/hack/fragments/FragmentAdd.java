@@ -59,6 +59,7 @@ public class FragmentAdd extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null) {
             path = getRealPath(getContext(), data.getData());
+            Log.e("MyTag", path);
             binding.pic.setImageBitmap(BitmapFactory.decodeFile(path));
             new Thread(()->{
                 items.add(new ItemEntity(path, "text"));

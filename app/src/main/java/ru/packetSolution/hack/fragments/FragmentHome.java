@@ -3,7 +3,9 @@ package ru.packetSolution.hack.fragments;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -17,14 +19,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import ru.packetSolution.hack.R;
+import ru.packetSolution.hack.adapters.RecyclerTouchListener;
 import ru.packetSolution.hack.adapters.RecyclerViewAdapter;
 import ru.packetSolution.hack.databinding.FragmentHomeBinding;
+import ru.packetSolution.hack.interfaces.myInterface;
 import ru.packetSolution.hack.room.ItemEntity;
 
-public class FragmentHome extends Fragment {
+public class FragmentHome extends Fragment implements myInterface {
+
 
     FragmentHomeBinding binding;
     ArrayList<ItemEntity> items;
+    FragmentFullscreen fragmentFullscreen = new FragmentFullscreen();
 
     public FragmentHome(ArrayList<ItemEntity> items) {
         this.items = items;
@@ -61,12 +68,18 @@ public class FragmentHome extends Fragment {
             }
         }); */
         initRecycler();
-
+        initListeners();
         return binding.getRoot();
     }
-    private void initRecycler(){
+
+    private void initRecycler() {
         binding.recyclerView.setAdapter(new RecyclerViewAdapter(items));
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
+        getParentFragmentManager().beginTransaction().replace(binding.searchFragment.getId(), new FragmentSearch(items)).replace(binding.fullscreen.getId(), fragmentFullscreen).commit();
+    }
+
+    private void initListeners() {
         binding.input.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -83,10 +96,42 @@ public class FragmentHome extends Fragment {
                 Toast.makeText(getContext(), "after changed", Toast.LENGTH_SHORT).show();
             }
         });
-        getParentFragmentManager().beginTransaction().replace(binding.searchFragment.getId(), new FragmentSearch(items)).commit();
+        binding.recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), binding.recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                binding.fullscreen.setVisibility(View.VISIBLE);
+                fragmentFullscreen.setImage(items.get(position));
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
     }
 
-    public void notifyAdapter(){
+    public void notifyAdapter() {
         binding.recyclerView.getAdapter().notifyDataSetChanged();
+    }
+
+    public boolean fullscreen() {
+        return binding.fullscreen.getVisibility() == View.VISIBLE;
+    }
+
+    public void back() {
+        binding.fullscreen.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void clicked() {
+
+    }
+
+    @Override
+    public void onStart() {
+        fragmentFullscreen.binding.back.setOnClickListener(view -> {
+            binding.fullscreen.setVisibility(View.GONE);
+        });
+        super.onStart();
     }
 }

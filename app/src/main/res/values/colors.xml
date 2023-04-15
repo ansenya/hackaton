@@ -11,6 +11,7 @@
     <color name="dots_color">#B9B9B9</color>
     <color name="hint_color">#65000000</color>
     <color name="red">#FF0000</color>
-    <color name="false_black">#131313</color>
-    <color name="grey_figma">#A1A1A1</color>
+    <color name="fade">#80B6B6B6</color>
+    <color name="transparent">#00B6B6B6</color>
+
 </resources>

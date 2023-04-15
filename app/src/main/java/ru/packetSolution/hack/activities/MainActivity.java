@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.databinding.ActivityMainBinding;
 import ru.packetSolution.hack.fragments.FragmentAdd;
+import ru.packetSolution.hack.fragments.FragmentFirstAdd;
 import ru.packetSolution.hack.fragments.FragmentHome;
 import ru.packetSolution.hack.fragments.FragmentUser;
 import ru.packetSolution.hack.room.App;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected boolean firstTime = true;
     ArrayList<ItemEntity> entityArrayList = new ArrayList<>();
     FragmentHome fragmentHome = new FragmentHome(entityArrayList);
-    FragmentAdd fragmentAdd = new FragmentAdd(entityArrayList);
+    FragmentFirstAdd fragmentFirstAdd = new FragmentFirstAdd(entityArrayList);
     FragmentUser fragmentUser = new FragmentUser();
 
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().
                 //replace(binding.start.getId(), fragmentStart).
                 replace(binding.home.getId(), fragmentHome).
-                replace(binding.add.getId(), fragmentAdd).
+                replace(binding.firstadd.getId(), fragmentFirstAdd).
                 replace(binding.user.getId(), fragmentUser).
                 commit();
         makeVisible(binding.home);
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     makeVisible(binding.home);
                     fragmentHome.notifyAdapter();
                     return true;
-                case R.id.add:
-                    makeVisible(binding.add);
+                case R.id.firstadd:
+                    makeVisible(binding.firstadd);
                     return true;
                 case R.id.user:
                     makeVisible(binding.user);
@@ -74,8 +75,18 @@ public class MainActivity extends AppCompatActivity {
     private void makeVisible(FrameLayout id){
         binding.home.setVisibility(View.GONE);
         binding.add.setVisibility(View.GONE);
+        binding.firstadd.setVisibility(View.GONE);
         binding.search.setVisibility(View.GONE);
         binding.user.setVisibility(View.GONE);
         id.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (fragmentHome.fullscreen()) {
+            fragmentHome.back();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
