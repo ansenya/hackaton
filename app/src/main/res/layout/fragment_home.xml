@@ -2,71 +2,70 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Список милых созданий"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30sp" />
-
-    <RelativeLayout
-        android:id="@+id/search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:paddingHorizontal="13dp"
-        android:paddingVertical="7dp">
-
-        <EditText
-            android:id="@+id/input"
+        <TextView
+            android:id="@+id/text"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/rectangle_1"
-            android:hint="Поищем-ка"
-            android:inputType="textPassword"
-            android:paddingLeft="10dp"
-            android:shadowColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="Список милых созданий"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="30sp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/ic_search" />
+        <RelativeLayout
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text"
+            android:paddingHorizontal="13dp"
+            android:paddingVertical="7dp">
+
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/rectangle_1"
+                android:hint="Поищем-ка"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp"
+                android:shadowColor="@color/black"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_search" />
 
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/search_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/search" />
+
+
 
     <FrameLayout
-        android:id="@+id/search_fragment"
+        android:layout_marginTop="140dp"
+        android:id="@+id/fullscreen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/search"
         android:visibility="gone" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/search" />
-
-    <!--    <SearchView-->
-    <!--        android:id="@+id/search"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginLeft="5dp"-->
-    <!--        android:layout_marginRight="5dp"-->
-    <!--        android:iconifiedByDefault="false"-->
-    <!--        android:queryHint="Поиск в списке"-->
-    <!--        android:textColorHint="@color/white"-->
-    <!--        android:background="@drawable/layout_bg"/>-->
 
 </RelativeLayout>
