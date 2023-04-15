@@ -36,18 +36,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void init() {
         binding.button.setOnClickListener(view -> {
-//            if (binding.inputEmail.getInputText().contains("@") &&
-//                    binding.inputPassword.getInputText().equals(binding.inputRepeatPassword.getInputText()) &&
-//                    binding.checkbox.isChecked()){
-//
-//                editor.putBoolean(authorized, true);
-//                editor.apply();
-//
-//                startActivity(new Intent(this, MainActivity.class));
-//                finish();
-//            } else {
-//                binding.wrong.setVisibility(View.VISIBLE);
-//            }
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });

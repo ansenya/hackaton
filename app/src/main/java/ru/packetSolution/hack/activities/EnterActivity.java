@@ -30,21 +30,11 @@ public class EnterActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
 
-
-
         init();
     }
 
     void init() {
         binding.button.setOnClickListener(view -> {
-//            if (binding.inputEmail.getInputText().equals("mail@mail.com") &&
-//                    binding.inputPassword.getInputText().equals("123456")) {
-//                editor.putBoolean(authorized, true);
-//                editor.apply();
-//                startActivity(new Intent(this, MainActivity.class));
-//                finish();
-//            } else
-//                binding.wrong.setVisibility(View.VISIBLE);
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });

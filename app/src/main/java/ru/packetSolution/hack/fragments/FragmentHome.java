@@ -1,9 +1,12 @@
 package ru.packetSolution.hack.fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,12 +61,29 @@ public class FragmentHome extends Fragment {
             }
         }); */
         initRecycler();
+
         return binding.getRoot();
     }
     private void initRecycler(){
         binding.recyclerView.setAdapter(new RecyclerViewAdapter(items));
         binding.recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        binding.input.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                Toast.makeText(getContext(), "not changed", Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Toast.makeText(getContext(), "changed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Toast.makeText(getContext(), "after changed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        getParentFragmentManager().beginTransaction().replace(binding.searchFragment.getId(), new FragmentSearch(items)).commit();
     }
 
     public void notifyAdapter(){

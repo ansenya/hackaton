@@ -7,12 +7,6 @@
     tools:context="ru.packetSolution.hack.activities.MainActivity">
 
     <FrameLayout
-        android:id="@+id/start"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation" />
-
-    <FrameLayout
         android:id="@+id/home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
