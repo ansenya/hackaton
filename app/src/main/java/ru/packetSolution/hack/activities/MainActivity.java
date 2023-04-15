@@ -80,4 +80,13 @@ public class MainActivity extends AppCompatActivity {
         binding.user.setVisibility(View.GONE);
         id.setVisibility(View.VISIBLE);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (fragmentHome.fullscreen()) {
+            fragmentHome.back();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
