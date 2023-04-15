@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.activities.MainActivity;
 import ru.packetSolution.hack.adapters.RecyclerViewAdapter;
+import ru.packetSolution.hack.adapters.RecyclerViewAdapterForAdd;
 import ru.packetSolution.hack.databinding.FragmentFirstAddBinding;
 import ru.packetSolution.hack.room.ItemEntity;
 
@@ -39,7 +40,7 @@ public class FragmentFirstAdd extends Fragment {
     }
 
     private void initRecycler(){
-        binding.recyclerView.setAdapter(new RecyclerViewAdapter(items));
+        binding.recyclerView.setAdapter(new RecyclerViewAdapterForAdd(items));
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.ad.setOnClickListener(view -> {
             FragmentAdd nextFrag = new FragmentAdd(items);
