@@ -67,6 +67,8 @@ public class FragmentAdd extends Fragment {
                 items.add(new ItemEntity(path, name.getInputText(), description.getInputText(), Integer.parseInt(price.getInputText())));
                 App.getDatabase().itemDao().save(new ItemEntity(path, name.getInputText(), description.getInputText(), Integer.parseInt(price.getInputText())));
             }).start();
+            Toast.makeText(getActivity(), "Добавлено!",
+                    Toast.LENGTH_LONG).show();
         });
     }
 

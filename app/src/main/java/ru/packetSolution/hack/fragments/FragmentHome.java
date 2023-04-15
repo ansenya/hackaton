@@ -142,6 +142,7 @@ public class FragmentHome extends Fragment implements myInterface {
     public void onStart() {
         fragmentFullscreen.binding.back.setOnClickListener(view -> {
             binding.fullscreen.setVisibility(View.GONE);
+            binding.others.setVisibility(View.VISIBLE);
         });
         super.onStart();
     }

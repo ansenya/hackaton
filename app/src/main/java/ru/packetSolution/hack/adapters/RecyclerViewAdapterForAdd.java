@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +42,7 @@ public class RecyclerViewAdapterForAdd extends RecyclerView.Adapter<RecyclerView
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         RoundedImageView roundedImageView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             roundedImageView = itemView.findViewById(R.id.pic);
