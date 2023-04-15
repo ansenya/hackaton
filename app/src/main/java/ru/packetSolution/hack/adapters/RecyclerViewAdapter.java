@@ -71,7 +71,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 roundedImageView.setImageResource(item.getDrawablePic());
             }
             name.setText(item.getText());
-            price.setText(item.getPrice() +"");
+            try{
+                price.setText(item.getPrice() +"");
+
+            } catch (Exception e){}
         }
     }
 }
