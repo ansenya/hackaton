@@ -72,9 +72,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
             name.setText(item.getText());
             try{
-                price.setText(item.getPrice() +"");
+                price.setText(item.getPrice() + "");
 
-            } catch (Exception e){}
+            } catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 }

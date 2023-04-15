@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -18,10 +19,11 @@ import ru.packetSolution.hack.databinding.FragmentUserBinding;
 import ru.packetSolution.hack.room.ItemEntity;
 
 
-public class FragmentUser extends Fragment {
+public class FragmentUser extends Fragment implements View.OnClickListener {
 
     FragmentUserBinding binding;
     private  ArrayList<ItemEntity> itemEntities;
+    private AppCompatButton editBtn;
     public FragmentUser(ArrayList<ItemEntity> itemEntities) {
         this.itemEntities = itemEntities;
     }
@@ -42,4 +44,8 @@ public class FragmentUser extends Fragment {
         binding.recyclerView.getAdapter().notifyDataSetChanged();
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
