@@ -4,6 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+
     <TextView
         android:id="@+id/name_fragment"
         android:layout_width="match_parent"
@@ -17,13 +37,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--info-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/info_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/gl_start"
         app:layout_constraintTop_toBottomOf="@+id/name_fragment">
 
         <TextView
@@ -91,18 +112,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/gl_end"
         app:layout_constraintTop_toBottomOf="@+id/name_fragment"
         app:srcCompat="@drawable/avatar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/email_data_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/info_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp">
+        app:layout_constraintStart_toStartOf="@id/gl_start"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/email"
@@ -130,6 +150,46 @@
             app:layout_constraintTop_toBottomOf="@id/email" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/edit_btn"
+        app:layout_constraintWidth_percent="0.92"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rectangle_2"
+        app:layout_constraintStart_toEndOf="@id/gl_start"
+        app:layout_constraintEnd_toStartOf="@id/gl_end"
+        app:layout_constraintTop_toBottomOf="@id/email_data_layout"
+        android:text="@string/text_edit"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/green"
+        android:textAllCaps="false"
+        android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/text_favourite"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.92"
+        android:layout_height="wrap_content"
+        android:text="@string/text_favourite"
+        android:textColor="@color/false_black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/gl_end"
+        app:layout_constraintStart_toEndOf="@id/gl_start"
+        app:layout_constraintTop_toBottomOf="@id/edit_btn"
+        android:layout_marginTop="40dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/text_favourite"
+        android:id="@+id/recycler_view"
+        app:layout_constraintWidth_percent="0.92"
+        app:layout_constraintStart_toEndOf="@id/gl_start"
+        app:layout_constraintEnd_toStartOf="@id/gl_end"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

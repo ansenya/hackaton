@@ -74,7 +74,7 @@ public class FragmentHome extends Fragment implements myInterface {
     }
 
     private void initRecycler() {
-        binding.recyclerView.setAdapter(new RecyclerViewAdapter(items));
+        binding.recyclerView.setAdapter(new RecyclerViewAdapter(items, 1));
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         getParentFragmentManager().beginTransaction().replace(binding.searchFragment.getId(), new FragmentSearch(items)).replace(binding.fullscreen.getId(), fragmentFullscreen).commit();

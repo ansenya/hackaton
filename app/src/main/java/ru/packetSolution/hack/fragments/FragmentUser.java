@@ -8,15 +8,22 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import java.util.ArrayList;
+
+import ru.packetSolution.hack.adapters.RecyclerViewAdapter;
+import ru.packetSolution.hack.adapters.RecyclerViewAdapterForAdd;
 import ru.packetSolution.hack.databinding.FragmentUserBinding;
+import ru.packetSolution.hack.room.ItemEntity;
 
 
 public class FragmentUser extends Fragment {
 
     FragmentUserBinding binding;
-
-    public FragmentUser() {
+    private  ArrayList<ItemEntity> itemEntities;
+    public FragmentUser(ArrayList<ItemEntity> itemEntities) {
+        this.itemEntities = itemEntities;
     }
 
     @Nullable
@@ -25,4 +32,10 @@ public class FragmentUser extends Fragment {
         binding = FragmentUserBinding.inflate(LayoutInflater.from(getContext()), container, false);
         return binding.getRoot();
     }
+
+    /*private void initRecycler(){
+        binding.recyclerView.setAdapter(new RecyclerViewAdapter(itemEntities, 3));
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+    }*/
 }
