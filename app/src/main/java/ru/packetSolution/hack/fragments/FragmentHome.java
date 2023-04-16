@@ -1,27 +1,18 @@
 package ru.packetSolution.hack.fragments;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 
-import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.adapters.RecyclerTouchListener;
 import ru.packetSolution.hack.adapters.RecyclerViewAdapter;
 import ru.packetSolution.hack.databinding.FragmentHomeBinding;
@@ -45,8 +36,8 @@ public class FragmentHome extends Fragment implements myInterface {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(LayoutInflater.from(getContext()), container, false);
         binding.input.clearFocus();
-        /*View v = inflater.inflate(R.layout.fragment_search,container,false);
-        SearchView sv = (SearchView) v.findViewById(R.id.search);
+        SearchView sv = binding.input;
+/*
         sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -55,33 +46,22 @@ public class FragmentHome extends Fragment implements myInterface {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
-                ArrayList<Animals> animalsList = (ArrayList<Animals>) bd.getAllAnimals();
-                searchList = new ArrayList<>();
-                for (Animals animal : animalsList) {
-                    if (animal.getName().toLowerCase().contains(newText.toLowerCase())) {
-                        searchList.add(animal);
-                    }
-                }
-                RecyclerView rv = (RecyclerView) v.findViewById(R.id.recycler_view1);
-                RecyclerViewAdapter adapter = new RecyclerViewAdapter(FragmentSearch.this, searchList); //?
-                rv.setAdapter(adapter);
-                rv.setLayoutManager(new LinearLayoutManager(FragmentSearch.this)); //?
-                adapter.notifyDataSetChanged();
+                adapter.getFilter().filter(newText);
                 return false;
             }
-        }); */
+        });
+*/
         initRecycler();
         initListeners();
         return binding.getRoot();
     }
 
     private void initRecycler() {
-        binding.recyclerView.setAdapter(new RecyclerViewAdapter(items, 1));
+        binding.recyclerView.setAdapter(new RecyclerViewAdapter());
         binding.recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
 
-        binding.recyclerViewSearch.setAdapter(new RecyclerViewAdapter(items, 1));
+        binding.recyclerViewSearch.setAdapter(new RecyclerViewAdapter());
         binding.recyclerViewSearch.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         getParentFragmentManager().beginTransaction().replace(binding.searchFragment.getId(), new FragmentSearch(items)).replace(binding.fullscreen.getId(), fragmentFullscreen).commit();
     }

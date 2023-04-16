@@ -4,6 +4,9 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import ru.packetSolution.hack.views.InputField;
 
 @Entity
@@ -49,5 +52,15 @@ public class ItemEntity {
         this.text = text;
         this.description = description;
         this.price = price;
+    }
+
+    public boolean contains(String query) {
+        if (text != null && text.contains(query)) {
+            return true;
+        }
+        if (description != null && description.contains(query)) {
+            return true;
+        }
+        return false;
     }
 }

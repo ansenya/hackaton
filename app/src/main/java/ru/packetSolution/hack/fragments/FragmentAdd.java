@@ -26,7 +26,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.loader.content.CursorLoader;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.activities.MainActivity;
@@ -69,12 +74,17 @@ public class FragmentAdd extends Fragment {
         Button btn = binding.button;
         ImageView pic = binding.pic;
         btn.setOnClickListener(view -> {
-            new Thread(()->{
-                items.add(new ItemEntity(path, name.getInputText(), description.getInputText(), Integer.parseInt(price.getInputText())));
-                App.getDatabase().itemDao().save(new ItemEntity(path, name.getInputText(), description.getInputText(), Integer.parseInt(price.getInputText())));
-            }).start();
-            Toast.makeText(getActivity(), "Добавлено!",
-                    Toast.LENGTH_LONG).show();
+            try {
+                int priceValue = Integer.parseInt(price.getInputText());
+                ItemEntity itemEntity = new ItemEntity(path, name.getInputText(), description.getInputText(), priceValue);
+                items.add(itemEntity);
+                new Thread(() -> App.getDatabase().itemDao().save(itemEntity)).start();
+                Toast.makeText(getActivity(), "Добавлено!", Toast.LENGTH_LONG).show();
+            } catch (NullPointerException e) {
+                Toast.makeText(getContext(), "Заполните данные", Toast.LENGTH_SHORT).show();
+            } catch (NumberFormatException e) {
+                Toast.makeText(getContext(), "Заполните данные", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

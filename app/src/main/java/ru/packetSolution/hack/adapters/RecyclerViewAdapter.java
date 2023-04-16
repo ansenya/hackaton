@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ru.packetSolution.hack.R;
+import ru.packetSolution.hack.filter.ItemFilter;
 import ru.packetSolution.hack.room.ItemEntity;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -23,8 +23,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     List<ItemEntity> items;
     private int idView;
     private int layoutId;
+    private static final String TAG = "EmailPassword";
 
-    public RecyclerViewAdapter(ArrayList<ItemEntity> items, int idView) {
+    public RecyclerViewAdapter() {
         this.items = items;
         if(idView == 1) this.layoutId = R.layout.view_item;
         if(idView == 2) this.layoutId = R.layout.view_item_add;
@@ -80,35 +81,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         }
     }
-    /*@Override
+
+    public List<ItemEntity> getItems() {
+        return items;
+    }
+
+    private ItemFilter filter = new ItemFilter();
+
     public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String query = charSequence.toString();
-                List<ItemEntity> filtered = new ArrayList<>();
+        return new ItemFilter();
+    }
 
-                if (query.isEmpty()) {
-                    filtered = items;
-                } else {
-                    for (ItemEntity data : dataList) {
-                        if (data.contains(query.toLowerCase())) {
-                            filtered.add(data);
-                        }
-                    }
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = filtered;
-
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                filteredDataList = (List<String>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
-    }*/
 }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,7 +34,7 @@ public class FragmentSearch extends Fragment {
     }
 
     private void initRecycler(){
-        binding.searchList.setAdapter(new RecyclerViewAdapter(itemsSearch, 1));
+        binding.searchList.setAdapter(new RecyclerViewAdapter());
         binding.searchList.setLayoutManager(new GridLayoutManager(getContext(), 2));
     }
 
