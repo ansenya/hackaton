@@ -16,8 +16,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import ru.packetSolution.hack.activities.MainActivity;
-import ru.packetSolution.hack.data.api.users.UsersApi;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import ru.packetSolution.hack.data.api.users.UsersApiService;
 import ru.packetSolution.hack.databinding.ActivityRegistartionBinding;
 
@@ -43,7 +45,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
         binding.button.setOnClickListener(view ->{
             createAccount(binding.inputEmail.getInputText(), binding.inputPassword.getInputText());
-            signIn(binding.inputEmail.getInputText(), binding.inputPassword.getInputText());
+            //Intent intent = new Intent(RegistrationActivity.this,EnterActivity.class);
+            //startActivity(intent);
+            //onBackPressed();
+            //signIn(binding.inputEmail.getInputText(), binding.inputPassword.getInputText());
         });
 
         // Initialize Firebase Auth
@@ -78,8 +83,20 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            UsersApiService.getInstance().insertUser(email,password);
+                            UsersApiService.getInstance().insertUser(email,password).enqueue(new Callback<Void>() {
+                                @Override
+                                public void onResponse(Call<Void> call, Response<Void> response) {
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<Void> call, Throwable t) {
+
+                                }
+                            });
                             Log.d(TAG, "createUserWithEmail:success");
+                            Toast.makeText(RegistrationActivity.this, "Успешная регистрация",
+                                    Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {

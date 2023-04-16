@@ -1,6 +1,10 @@
 package ru.packetSolution.hack.data.api.users;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.GetTokenResult;
+
 import retrofit2.http.DELETE;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import ru.packetSolution.hack.domain.model.User;
@@ -24,6 +28,9 @@ public interface UsersApi {
             @Path("id")
             long id
     );
+    @PUT("/user/{id}")
+    Call<Void> updateUser(@Path("id") Task<GetTokenResult> id);
+
 
     @DELETE("user/{id}")
     Call<Void> deleteUser(
