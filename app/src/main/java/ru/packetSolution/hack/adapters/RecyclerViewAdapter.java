@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -79,4 +80,35 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         }
     }
+    /*@Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String query = charSequence.toString();
+                List<ItemEntity> filtered = new ArrayList<>();
+
+                if (query.isEmpty()) {
+                    filtered = items;
+                } else {
+                    for (ItemEntity data : dataList) {
+                        if (data.contains(query.toLowerCase())) {
+                            filtered.add(data);
+                        }
+                    }
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filtered;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filteredDataList = (List<String>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }*/
 }

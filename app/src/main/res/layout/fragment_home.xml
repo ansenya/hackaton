@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,39 +29,22 @@
             android:paddingHorizontal="13dp"
             android:paddingVertical="7dp">
 
-            <!--            <EditText-->
-            <!--                android:id="@+id/input"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="35dp"-->
-            <!--                android:layout_centerInParent="true"-->
-            <!--                android:background="@drawable/rectangle_1"-->
-            <!--                android:hint="Поищем-ка"-->
-            <!--                android:inputType="textPassword"-->
-            <!--                android:paddingLeft="10dp"-->
-            <!--                android:shadowColor="@color/black"-->
-            <!--                android:textColor="@color/black"-->
-            <!--                android:textSize="16sp" />-->
-
-            <!--            <ImageView-->
-            <!--                android:layout_width="30dp"-->
-            <!--                android:layout_height="30dp"-->
-            <!--                android:layout_alignParentRight="true"-->
-            <!--                android:layout_centerInParent="true"-->
-            <!--                android:layout_marginRight="10dp"-->
-            <!--                android:src="@drawable/ic_search" />-->
-
-
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/input"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/rectangle_1"
                 android:inputType="text"
                 android:queryHint="Поищем-ка"
-                android:paddingLeft="10dp"
+                android:focusableInTouchMode="true"
+                app:queryBackground="@android:color/transparent"
+                android:textColorHint="@color/grey_figma"
+                android:paddingStart="10dp"
                 app:iconifiedByDefault="true"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:ignore="RtlSymmetry"
+                />
 
 
         </RelativeLayout>

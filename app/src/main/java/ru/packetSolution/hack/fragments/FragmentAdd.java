@@ -3,7 +3,6 @@ package ru.packetSolution.hack.fragments;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -27,12 +26,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.loader.content.CursorLoader;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import ru.packetSolution.hack.R;
 import ru.packetSolution.hack.activities.MainActivity;
-import ru.packetSolution.hack.activities.PhotoViewerActivity;
 import ru.packetSolution.hack.databinding.ActivityMainBinding;
 import ru.packetSolution.hack.databinding.FragmentAddBinding;
 import ru.packetSolution.hack.databinding.FragmentHomeBinding;
@@ -45,8 +42,6 @@ public class FragmentAdd extends Fragment {
 
     FragmentAddBinding binding;
     String path;
-    private static final int NORM = 1;
-    private static final int REQUEST_TAKE_PHOTO = 1;
 
 
     FragmentHome fragmentHome = new FragmentHome(null);
@@ -73,9 +68,6 @@ public class FragmentAdd extends Fragment {
         InputField price = binding.price;
         Button btn = binding.button;
         ImageView pic = binding.pic;
-        binding.buttScan.setOnClickListener(view -> {
-            getPhoto();
-        });
         btn.setOnClickListener(view -> {
             new Thread(()->{
                 items.add(new ItemEntity(path, name.getInputText(), description.getInputText(), Integer.parseInt(price.getInputText())));
@@ -93,16 +85,6 @@ public class FragmentAdd extends Fragment {
             path = getRealPath(getContext(), data.getData());
             Log.e("MyTag", path);
             binding.pic.setImageBitmap(BitmapFactory.decodeFile(path));
-        }
-        if (requestCode == NORM) {
-            Bundle extras = data.getExtras();
-            Bitmap thumbnailBitmap = (Bitmap) extras.get("data");
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            thumbnailBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            byte[] byteArray = stream.toByteArray();
-            Intent intent = new Intent(getActivity(), PhotoViewerActivity.class);
-            intent.putExtra("picture", byteArray);
-            startActivity(intent);
         }
     }
 
@@ -127,13 +109,5 @@ public class FragmentAdd extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         binding = null;
-    }
-    public void getPhoto() {
-        Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        try {
-            startActivityForResult(takePhotoIntent, REQUEST_TAKE_PHOTO);
-        } catch (ActivityNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }

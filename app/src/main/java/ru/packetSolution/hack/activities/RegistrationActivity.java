@@ -5,14 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import ru.packetSolution.hack.activities.MainActivity;
+import ru.packetSolution.hack.data.api.users.UsersApi;
+import ru.packetSolution.hack.data.api.users.UsersApiService;
 import ru.packetSolution.hack.databinding.ActivityRegistartionBinding;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -42,6 +40,11 @@ public class RegistrationActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
         init();
+
+        binding.button.setOnClickListener(view ->{
+            createAccount(binding.inputEmail.getInputText(), binding.inputPassword.getInputText());
+            signIn(binding.inputEmail.getInputText(), binding.inputPassword.getInputText());
+        });
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -75,6 +78,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            UsersApiService.getInstance().insertUser(email,password);
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
