@@ -31,7 +31,6 @@
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/pic"
             android:layout_margin="10dp"
-
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"

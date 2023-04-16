@@ -31,7 +31,7 @@ import ru.packetSolution.hack.room.ItemEntity;
 public class FragmentHome extends Fragment implements myInterface {
 
 
-    FragmentHomeBinding binding;
+    public FragmentHomeBinding binding;
     ArrayList<ItemEntity> items;
     ArrayList<ItemEntity> itemsSearch = new ArrayList<>();
     FragmentFullscreen fragmentFullscreen = new FragmentFullscreen();

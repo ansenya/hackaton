@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,7 +29,10 @@ import androidx.loader.content.CursorLoader;
 import java.util.ArrayList;
 
 import ru.packetSolution.hack.R;
+import ru.packetSolution.hack.activities.MainActivity;
+import ru.packetSolution.hack.databinding.ActivityMainBinding;
 import ru.packetSolution.hack.databinding.FragmentAddBinding;
+import ru.packetSolution.hack.databinding.FragmentHomeBinding;
 import ru.packetSolution.hack.room.App;
 import ru.packetSolution.hack.room.ItemEntity;
 import ru.packetSolution.hack.views.InputField;
@@ -39,6 +43,8 @@ public class FragmentAdd extends Fragment {
     FragmentAddBinding binding;
     String path;
 
+
+    FragmentHome fragmentHome = new FragmentHome(null);
     ArrayList<ItemEntity> items;
 
     public FragmentAdd(ArrayList<ItemEntity> items){
