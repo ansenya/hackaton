@@ -56,4 +56,10 @@ public class FragmentUser extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
 }

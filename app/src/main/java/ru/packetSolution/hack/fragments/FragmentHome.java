@@ -146,4 +146,10 @@ public class FragmentHome extends Fragment implements myInterface {
         });
         super.onStart();
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
 }

@@ -104,4 +104,10 @@ public class FragmentAdd extends Fragment {
         }
         return result;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
 }
