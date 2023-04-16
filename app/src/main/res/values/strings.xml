@@ -16,4 +16,10 @@
     <string name="user_id" >293</string>
     <string name="text_edit">Редактировать</string>
     <string name="text_favourite">Избранное</string>
+    <string name="name_edit_user_activity">Редактирование профиля</string>
+    <string name="edit_pas">Изменить</string>
+    <string name="save_text">Сохранить</string>
+    <string name="old_pas">Старый пароль</string>
+    <string name="new_pas">Новый пароль</string>
+    <string name="edit_pasw">Изменение пароля</string>
 </resources>

@@ -1,5 +1,6 @@
 package ru.packetSolution.hack.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import ru.packetSolution.hack.activities.EditUserActivity;
+import ru.packetSolution.hack.activities.MainActivity;
 import ru.packetSolution.hack.adapters.RecyclerViewAdapter;
 import ru.packetSolution.hack.adapters.RecyclerViewAdapterForAdd;
 import ru.packetSolution.hack.databinding.FragmentUserBinding;
@@ -33,6 +36,9 @@ public class FragmentUser extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentUserBinding.inflate(LayoutInflater.from(getContext()), container, false);
         initRecycler();
+        binding.editBtn.setOnClickListener(v -> {
+            startActivity(new Intent(this.getContext(), EditUserActivity.class));
+        });
         return binding.getRoot();
     }
 
