@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,7 +38,8 @@ public class FragmentUser extends Fragment implements View.OnClickListener {
         binding = FragmentUserBinding.inflate(LayoutInflater.from(getContext()), container, false);
         initRecycler();
         binding.editBtn.setOnClickListener(v -> {
-            startActivity(new Intent(this.getContext(), EditUserActivity.class));
+            /*startActivity(new Intent(this.getContext(), EditUserActivity.class));*/
+            Toast.makeText(getContext(), "Coming soon…", Toast.LENGTH_SHORT).show();
         });
         return binding.getRoot();
     }
