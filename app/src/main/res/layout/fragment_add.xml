@@ -50,6 +50,7 @@
                 android:layout_alignEnd="@+id/pic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/buttScan"
                 android:src="@drawable/addphoto" />
         </RelativeLayout>
 
