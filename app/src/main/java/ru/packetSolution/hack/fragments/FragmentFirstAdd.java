@@ -56,4 +56,10 @@ public class FragmentFirstAdd extends Fragment {
         binding.recyclerView.getAdapter().notifyDataSetChanged();
     }
 
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
 }

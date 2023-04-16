@@ -29,5 +29,9 @@ public class FragmentFullscreen extends Fragment {
         binding.pic.setImageBitmap(BitmapFactory.decodeFile(item.getPath()));
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
 }

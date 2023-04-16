@@ -38,4 +38,10 @@ public class FragmentSearch extends Fragment {
         binding.searchList.setAdapter(new RecyclerViewAdapter(itemsSearch, 1));
         binding.searchList.setLayoutManager(new GridLayoutManager(getContext(), 2));
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
 }

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     
     <application
+        android:usesCleartextTraffic="true"
         android:name=".room.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -27,13 +28,16 @@
         </activity>
         <activity
             android:name=".activities.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".activities.EnterActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".activities.RegistrationActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
+        <activity
+            android:name=".activities.EditUserActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

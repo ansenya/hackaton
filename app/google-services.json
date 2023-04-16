@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "371741221986",
+    "project_id": "productplacement-41247",
+    "storage_bucket": "productplacement-41247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371741221986:android:056313934e381586ef5d3b",
+        "android_client_info": {
+          "package_name": "ru.packetSolution.hack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371741221986-uf0ipsteio8pmbblf8t9dgjjoav8fto8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLX12c4rfCS9sJzVXAWqMtGDan5YrVVvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371741221986-uf0ipsteio8pmbblf8t9dgjjoav8fto8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

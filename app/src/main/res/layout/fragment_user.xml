@@ -169,8 +169,7 @@
             android:textColor="@color/white"
             app:backgroundTint="@color/green"
             android:textAllCaps="false"
-            android:layout_marginTop="30dp"
-            android:onClick="editBtn"/>
+            android:layout_marginTop="30dp" />
 
         <TextView
             android:id="@+id/text_favourite"
