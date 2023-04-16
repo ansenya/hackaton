@@ -42,7 +42,6 @@ public class EnterActivity extends AppCompatActivity {
         editor = preferences.edit();
 
         init();
-
         mAuth = FirebaseAuth.getInstance();
     }
 
