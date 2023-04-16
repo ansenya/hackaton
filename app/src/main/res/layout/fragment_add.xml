@@ -9,9 +9,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:gravity="center"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,68 +24,79 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:layout_margin="10dp"
             android:text="Фото:"
             android:textColor="@color/black" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/pic"
-            android:layout_margin="10dp"
 
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:adjustViewBounds="true"
-            android:src="@drawable/no_pic"
-            app:riv_corner_radius="20dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/pic"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/no_pic"
+                app:riv_corner_radius="20dp" />
+
+            <ImageView
+                android:padding="10dp"
+                android:layout_alignBottom="@+id/pic"
+                android:layout_alignEnd="@+id/pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/addphoto" />
+        </RelativeLayout>
+
 
         <ru.packetSolution.hack.views.InputField
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_margin="5dp"
-            app:hint="Котик"
             android:inputType="text"
-            android:id="@+id/name"
+            app:hint="Котик"
             app:hint_color="@color/hint_color"
             app:title="Название:" />
 
         <ru.packetSolution.hack.views.InputField
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:inputType="text"
-            android:id="@+id/description"
-            app:hint="Хорошенбкий"
             android:layout_margin="5dp"
+            android:inputType="text"
+            app:hint="Хорошенбкий"
             app:hint_color="@color/hint_color"
             app:title="Описание:" />
 
 
         <ru.packetSolution.hack.views.InputField
+            android:id="@+id/price"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_margin="5dp"
-            app:hint="2 сольди"
             android:inputType="number"
-            android:id="@+id/price"
+            app:hint="2 сольди"
             app:hint_color="@color/hint_color"
             app:title="Цена:" />
 
         <Button
             android:id="@+id/button"
-            app:backgroundTint="#D3817A"
             android:layout_width="160dp"
             android:layout_height="40dp"
-            android:text="Добавить"
-            android:layout_marginLeft="4dp"
             android:layout_gravity="left"
-            android:textSize="12sp"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="4dp"
             android:background="@drawable/rectangle_2"
-            android:layout_margin="10dp" />
+            android:text="Добавить"
+            android:textSize="12sp"
+            app:backgroundTint="#D3817A" />
     </LinearLayout>
-
-
 
 
 </androidx.core.widget.NestedScrollView>
