@@ -8,11 +8,11 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/images"
-        android:layout_width="158dp"
-        android:layout_height="158dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:adjustViewBounds="true"
         android:background="@drawable/logo"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         app:riv_corner_radius="20dp"
         tools:src="@drawable/img" />
@@ -20,8 +20,9 @@
     <TextView
         android:textSize="18sp"
         android:layout_marginTop="30dp"
-android:textColor="@color/black"
+        android:textColor="#65000000"
         android:layout_below="@+id/images"
+        android:id="@+id/texts"
         android:layout_centerHorizontal="true"
         android:text="Lorem ipsum dolor sit amet consectetur. Scelerisque facilisi ullamcorper fermentum mattis dolor sed blandit etiam. Lobortis lectus donec libero risus sapien mus. Varius semper tortor id aliquam porttitor aliquam. Tellus pharetra pellentesque ultrices amet cras pulvinar. Varius eu lobortis mauris massa leo. Proin amet adipiscing tincidunt viverra eu amet cras"
         android:layout_width="243dp"

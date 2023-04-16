@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,8 @@ public class ViewPager2Adapter extends RecyclerView.Adapter<ViewPager2Adapter.Vi
 
     // Array of images
     // Adding images from drawable folder
-    private int[] images = {R.drawable.i1, R.drawable.i2};
+    private int[] images = {R.drawable.others_ads, R.drawable.profile, R.drawable.my_ads, R.drawable.favourites};
+    private String[] texts = {"Смотрите объявления других людей", "Создавайте свой профиль", "Размещайте свои объявления", "Сохраняйте в избранное"};
     private Context ctx;
 
     // Constructor of our ViewPager2Adapter class
@@ -38,6 +40,7 @@ public class ViewPager2Adapter extends RecyclerView.Adapter<ViewPager2Adapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // This will set the images in imageview
         holder.images.setImageResource(images[position]);
+        holder.texts.setText(texts[position]);
     }
 
     // This Method returns the size of the Array
@@ -49,10 +52,12 @@ public class ViewPager2Adapter extends RecyclerView.Adapter<ViewPager2Adapter.Vi
     // The ViewHolder class holds the view
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView images;
+        TextView texts;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             images = itemView.findViewById(R.id.images);
+            texts = itemView.findViewById(R.id.texts);
         }
     }
 }
