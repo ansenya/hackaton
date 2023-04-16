@@ -5,7 +5,7 @@ package ru.packetSolution.hack.domain.model;
 public class Product {
     private int id;
     private String name;
-    private User user_id;
+    private int user_id;
     private String product_location;
     private int likes;
     private int views;
@@ -32,7 +32,7 @@ public class Product {
         return name;
     }
 
-    public User getUser_id() {
+    public int getUser_id() {
         return user_id;
     }
 
@@ -52,7 +52,7 @@ public class Product {
         return cost;
     }
 
-    public Product(int id, String name, User user_id, String product_location, int likes, int views, String cost) {
+    public Product(int id, String name, int user_id, String product_location, int likes, int views, String cost) {
         this.id = id;
         this.name = name;
         this.user_id = user_id;

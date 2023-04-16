@@ -7,7 +7,7 @@ public class RetrofitService {
 
     // https:// google.com / path ? search = asdaddsa
 
-    private static final String BASE_URL ="";//todo write URL
+    private static final String BASE_URL ="http://10.132.75.60:8084";//todo write URL
     private static Retrofit retrofit;
 
     private static Retrofit create(){
