@@ -45,6 +45,11 @@ public class RegistrationActivity extends AppCompatActivity {
         editor = preferences.edit();
         init();
 
+        binding.button.setOnClickListener(view ->{
+            createAccount(binding.inputEmail.getInputText(), binding.inputPassword.getInputText());
+            signIn(binding.inputEmail.getInputText(), binding.inputPassword.getInputText());
+        });
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
     }
